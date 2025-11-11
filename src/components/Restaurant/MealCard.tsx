@@ -1,46 +1,77 @@
+"use client";
 import Image from "next/image";
-import RamenBowlHero from "@/assets/ramen-bowl-hero.png";
 import MealPriceTag from "./MealPriceTag";
 import { CiShop } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import RestaurantStatus from "./RestaurantStatus";
-import { MealManagementMenu } from "./MealManagementMenu";
+import { MealMutationMenu } from "./MealMutationMenu";
+import { IMeal } from "@/types";
+import MealPlaceholderImage from "@/assets/meal-placeholder.png";
+import { useEffect, useState } from "react";
+import { isImageUrl } from "@/lib/image";
 
-type Meal = {
-  id: string;
-  title: string;
-  price: string;
-  // img: RamenBowlHero;
-  rating?: number;
-  open?: boolean;
-  tag?: string;
-};
+export default function MealCard({ meal }: { meal: IMeal }) {
+  const [validMealImageUrl, setValidMealImageUrl] = useState(false);
+  const [validRestaurantLogoUrl, setValidRestaurantLogoUrl] = useState(false);
 
-export default function MealCard({ meal }: { meal: Meal }) {
+  useEffect(() => {
+    if (meal.image) {
+      isImageUrl(meal.image).then(setValidMealImageUrl);
+    }
+    if (meal.logo) {
+      isImageUrl(meal.logo).then(setValidRestaurantLogoUrl);
+    }
+  }, [meal.image, meal.logo]);
+
   return (
-    <div className="space-y-4 max-w-80 w-full  overflow-hidden bg-white">
-      <div className="relative w-full h-65 md:h-70 bg-muted rounded-xl overflow-hidden">
-        <Image
-          src={RamenBowlHero}
-          alt={meal.title}
-          fill
-          className="object-cover"
+    <div className="group space-y-4 max-w-80 w-full  overflow-hidden bg-white">
+      <div className="relative flex items-center justify-center w-full h-65 md:h-70 bg-muted rounded-xl overflow-hidden">
+        {meal.image && validMealImageUrl ? (
+          <Image
+            src={meal.image}
+            alt={meal.name}
+            fill
+            className="object-cover group-hover:scale-110 duration-300"
+          />
+        ) : (
+          <div className="relative size-35 flex items-center justify-center   p-1.5">
+            <Image
+              src={MealPlaceholderImage}
+              alt={meal.name}
+              fill
+              className="object-cover group-hover:scale-110 duration-300"
+            />
+          </div>
+        )}
+        <MealPriceTag
+          className="absolute left-4 top-4"
+          value={meal.price ?? meal["Price" as keyof typeof meal]}
         />
-        <MealPriceTag className="absolute left-4 top-4" value={20.99} />
       </div>
-      <div className="relative flex justify-between gap-2">
+      <div className="relative w-full flex justify-between gap-2">
         <div className="flex gap-x-4">
           <div>
-            <div className="flex items-center justify-center bg-muted size-10 rounded-sm p-1.5">
-              <CiShop className="size-full stroke-[0.2] text-muted-foreground " />
+            <div className="relative size-10 rounded-sm bg-muted overflow-hidden">
+              {meal.logo && validRestaurantLogoUrl ? (
+                <Image
+                  src={meal.logo}
+                  alt={meal.restaurantName || ""}
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <div className="size-full flex items-center justify-center   p-1.5">
+                  <CiShop className="size-full stroke-[0.2] text-muted-foreground " />
+                </div>
+              )}
             </div>
           </div>
           <div className="space-y-2">
             <h3
-              title={meal.title}
-              className="font-bold  text-black/90 leading-4 line-clamp-3"
+              title={meal.name}
+              className="font-bold  wrap-anywhere text-black/90 leading-4 line-clamp-3"
             >
-              {meal.title}
+              {meal.name}
             </h3>
             <div className="flex items-center gap-1 text-amber-500">
               <FaStar className="size-3.5 " />
@@ -48,7 +79,7 @@ export default function MealCard({ meal }: { meal: Meal }) {
             </div>
           </div>
         </div>
-        <MealManagementMenu />
+        <MealMutationMenu meal={meal} />
       </div>
       <RestaurantStatus open={!!meal.open} />
     </div>

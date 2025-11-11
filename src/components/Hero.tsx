@@ -1,10 +1,8 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import RamenBowlHero from "@/assets/ramen-bowl-hero.png";
-import { FaMotorcycle, FaSearch, FaShoppingBag } from "react-icons/fa";
-import { Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { CiSearch } from "react-icons/ci";
+import { FaMotorcycle, FaShoppingBag } from "react-icons/fa";
+import SearchMeal from "./Restaurant/SearchMeal";
 
 export default function Hero() {
   return (
@@ -34,22 +32,7 @@ export default function Hero() {
                 Pickup
               </Button>
             </div>
-            <form
-              action=""
-              className="w-full flex flex-wrap sm:flex-nowrap sm:items-center  gap-2 p-4 md:p-6"
-            >
-              <div className="relative flex-1 min-w-60  h-11 md:h-13">
-                <CiSearch className="absolute inset-0 left-3 my-auto text-primary size-4.5 stroke-1" />
-                <Input
-                  className="size-full pl-9 py-2 rounded-md ring-0! outline-none!  "
-                  placeholder="What do you like to eat today?"
-                />
-              </div>
-              <Button className="food-btn-find h-11 md:h-13 ">
-                <FaSearch className="size-3.5" />
-                Find Food
-              </Button>
-            </form>
+            <SearchMeal />
           </div>
         </div>
         <Image

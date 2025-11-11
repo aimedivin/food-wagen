@@ -1,8 +1,11 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { AddEditMealDialog } from "../Restaurant/AddEditMealDialog";
+import { Button } from "../ui/button";
+import { useMutateMeal } from "@/context/MutateMealContext";
 
 export default function Navbar() {
+  const { setIsDialogOpen, setMode } = useMutateMeal();
   return (
     <header className="w-full sticky top-0 z-30 bg-white/90 backdrop-blur-lg border-b">
       <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
@@ -15,7 +18,15 @@ export default function Navbar() {
           />
         </Link>
 
-        <AddEditMealDialog />
+        <Button
+          onClick={() => {
+            setMode("add");
+            setIsDialogOpen(true);
+          }}
+          className="food-btn-primary "
+        >
+          Add Meal
+        </Button>
       </div>
     </header>
   );

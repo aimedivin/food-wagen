@@ -6,7 +6,7 @@ const MealPriceTag = ({
   className,
 }: {
   currency?: string;
-  value: number;
+  value: string;
   className?: string;
 }) => {
   return (

@@ -1,9 +1,9 @@
 import { combineReducers } from "@reduxjs/toolkit";
+import mealsReducer from "./mealsSlice";
+import mealMutationReducer from "./mealMutationSlice";
 
-const sessionPersistConfig = {
-  key: "auth",
-  storage: sessionStorage,
-};
-
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  meals: mealsReducer,
+  mealMutation: mealMutationReducer,
+});
 export default rootReducer;

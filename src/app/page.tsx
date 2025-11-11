@@ -2,6 +2,7 @@ import Navbar from "@/components/Header/Navbar";
 import Hero from "@/components/Hero";
 import FeaturedMeals from "@/components/Restaurant/FeaturedMeals";
 import Footer from "@/components/Footer";
+import { MealMutationModal } from "@/components/Restaurant/MealMutationModal";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Navbar />
       <div className="space-y-5">
         <Hero />
+        <MealMutationModal />
         <FeaturedMeals />
         <Footer />
       </div>
