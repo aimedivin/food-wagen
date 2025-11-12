@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# A2SV Food Wagen
 
-## Getting Started
+The **Food Wagen** is a web application designed for the efficient management of food items, including viewing, searching, adding, editing, and deleting food entries.
 
-First, run the development server:
+- **Live link:** https://the-food-wagen.vercel.app
+- **Design link:** [Figma Design](https://www.figma.com/design/4VRw3oQRrn0WWwHSqgyhCF/Eskalate-Hiring-2025---Web-Assessment?node-id=1-189&t=BZCH8M1Sd3UnXoGW-0)
+
+## 🚀 Core Features
+
+- **Food Item Management (CRUD):** Complete functionality to add, edit, and delete food items.
+- **Search & Filtering:** Filtering of food items by name via API calls.
+- **Responsive Design:** Fully responsive layout adhering to the provided Figma design for mobile, tablet, and desktop views.
+
+## 🏗️ Tech Stack
+
+- **Framework:** Next.js (React + TypeScript)
+- **Styling:** TailwindCSS
+- **UI Components:** Shadcn/ui
+- **State Management:** Redux Toolkit + React Context API
+- **HTTP Client:** Axios + Interceptors
+- **Forms & Validation** React Hook Form + Zod
+- **Testing Jest** / React Testing Library
+- **Package Manager**: npm
+
+## ⚙️ Project Setup
+
+Follow these steps to set up and run the project locally:
+
+### Prerequisites
+
+- Node.js (18+ recommended)
+- npm (or yarn/pnpm)
+- Git
 
 ```bash
+# Clone the repository
+git clone https://github.com/aimedivin/food-wagen.git
+
+# Navigate to the project directory
+cd food-wagen
+
+# Install dependencies
+npm install
+- Add require environment variable as listed in .env.example
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To build and run the application in production mode:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Build the project
+npm run build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Start the production server
+npm start
+```
 
-## Learn More
+### 🧪 Testing
 
-To learn more about Next.js, take a look at the following resources:
+The project includes tests using Jest and React Testing Library for critical functionality
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Test Scenarios Covered
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Component Rendering
+- User Interaction.
+- API Mocking
 
-## Deploy on Vercel
+```bash
+# Run all Tests
+npm run test
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Run test and view coverage
+npm run test:coverage
+```

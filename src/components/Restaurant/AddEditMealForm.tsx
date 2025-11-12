@@ -52,7 +52,7 @@ export function AddEditMealForm() {
   const { selectedMeal } = useAppSelector((state) => state.mealMutation);
   const dispatch = useAppDispatch();
 
-  const { mode } = useMutateMeal();
+  const { mode, setIsDialogOpen, setMode } = useMutateMeal();
 
   // Pre-populate the form fields when editing,
   useEffect(() => {
@@ -84,6 +84,8 @@ export function AddEditMealForm() {
         })
       );
       dispatch(resetMealMutation());
+      setMode(undefined);
+      setIsDialogOpen(false);
     }
   }, [success]);
 
