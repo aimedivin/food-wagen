@@ -12,7 +12,10 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t bg-black/90 text-white px-[5%]">
+    <footer
+      className="w-full border-t bg-black/90 text-white px-[5%]"
+      data-testid="food-footer-section"
+    >
       <div className="flex flex-col md:flex-row items-center gap-10 mx-auto max-w-6xl py-12 justify-between">
         <div className="flex flex-wrap max-w-sm md:max-w-md w-full gap-8 lg:gap-14 text-sm">
           <div>

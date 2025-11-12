@@ -57,6 +57,7 @@ export function DeleteMealDialogContent() {
           className="flex-1 food-btn-primary text-base! h-11!"
           onClick={handleMealDelete}
           disabled={loading}
+          data-testid="food-delete-btn"
         >
           {loading && <Spinner className="size-4" />}
           {loading ? "Deleting Meal..." : "Delete Meal"}

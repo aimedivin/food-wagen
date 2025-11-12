@@ -6,7 +6,10 @@ import SearchMeal from "./Restaurant/SearchMeal";
 
 export default function Hero() {
   return (
-    <section className="w-full bg-[#FFB30E] overflow-hidden px-[5%]">
+    <section
+      className="w-full bg-[#FFB30E] overflow-hidden px-[5%]"
+      data-testid="food-hero-section"
+    >
       <div className="relative mx-auto max-w-6xl  py-14 md:py-20 flex gap-15 items-center">
         <div className="space-y-6  w-full max-w-xl lg:flex-3/5 z-20">
           <div>

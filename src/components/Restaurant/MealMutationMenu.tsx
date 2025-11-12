@@ -32,6 +32,7 @@ export function MealMutationMenu({ meal }: { meal: IMeal }) {
             variant={"ghost"}
             size={"icon-sm"}
             className="w-fit h-fit rounded py-1 mr-0.5"
+            data-testid="food-card-menu-btn"
           >
             <HiDotsVertical />
           </Button>
@@ -44,6 +45,7 @@ export function MealMutationMenu({ meal }: { meal: IMeal }) {
                 handleMutationAction();
               }}
               className="rounded cursor-pointer outline-none hover:bg-muted px-3 py-1"
+              data-testid="food-card-edit-btn"
             >
               Edit
             </DropdownMenuItem>
@@ -53,6 +55,7 @@ export function MealMutationMenu({ meal }: { meal: IMeal }) {
                 handleMutationAction();
               }}
               className="rounded cursor-pointer outline-none hover:bg-muted px-3 py-1 text-destructive"
+              data-testid="food-card-delete-btn"
             >
               Delete
             </DropdownMenuItem>

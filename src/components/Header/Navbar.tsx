@@ -7,7 +7,7 @@ import { useMutateMeal } from "@/context/MutateMealContext";
 export default function Navbar() {
   const { setIsDialogOpen, setMode } = useMutateMeal();
   return (
-    <header className="w-full sticky top-0 z-30 bg-white/90 backdrop-blur-lg border-b">
+    <header className="w-full sticky top-0 z-30 bg-white/90 backdrop-blur-lg border-b" data-testid="food-header-section">
       <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image

@@ -326,6 +326,7 @@ export function AddEditMealForm() {
           type="submit"
           disabled={loading}
           className="flex-1 food-btn-primary text-base! h-11!"
+          data-testid="food-add_update-btn"
         >
           {loading && <Spinner className="size-4" />}
 

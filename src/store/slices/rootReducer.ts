@@ -6,4 +6,5 @@ const rootReducer = combineReducers({
   meals: mealsReducer,
   mealMutation: mealMutationReducer,
 });
+
 export default rootReducer;

@@ -44,7 +44,10 @@ export default function FeaturedMeals() {
   };
 
   return (
-    <section className="w-full px-[5%]">
+    <section
+      className="w-full px-[5%]"
+      data-testid="food-feature-meals-section"
+    >
       <div className="mx-auto max-w-6xl  py-12">
         <h2 className="text-2xl md:text-3xl font-extrabold text-center">
           Featured Meals

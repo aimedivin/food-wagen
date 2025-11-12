@@ -28,7 +28,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
-  ],
+    "**/*.mts",
+    "jest.config.ts",
+    "jest.setup.ts"
+, "src/components/Restaurant/__tests__/AddEditMealForm.test.tsx", "src/components/Restaurant/__tests__/DeleteMealDialogContent.test.tsx"  ],
   "exclude": ["node_modules"]
 }
